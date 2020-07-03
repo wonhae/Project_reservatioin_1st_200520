@@ -1,0 +1,18 @@
+■ movieTest 기본테이블 
+id 		아이디
+name		이름 ->이동
+title		영화이름 ->이동
+theater		영화관
+day		날짜
+howMany		사람수 (number)
+cost		가격 (number)
+seatNumber	좌석번호 
+
+테이블분리
+■ member_table   테이블
+mid
+mname  ->테이블조인 
+
+■ movie_table 테이블
+mvid
+title 

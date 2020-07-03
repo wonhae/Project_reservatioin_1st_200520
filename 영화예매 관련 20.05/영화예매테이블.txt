@@ -1,0 +1,81 @@
+■customer 테이블 (부모테이블)
+# id
+pwd
+name
+birthDate
+age  (숫자)  -> sysdate로 할 것
+tel
+
+■movie 테이블 7컬럼 (부모테이블)
+# mvId 
+title
+dir
+act
+genre
+age
+playTime
+
+■ theater 영화관 (부모테이블)
+# thId
+thName
+thLocation
+thTel 
+
+
+■rsv 테이블 9컬럼 (자식테이블)
+rsv_id
+cus_id (외래키)
+mv_mvId (외래키)
+th_thId (외래키)
+day
+rsvTime
+num  (숫자)
+paymentMethod
+total   (숫자)
+
+
+ㅁ V_rsv View 만듦
+reate or replace view V_rsv as
+select c.id 고객ID, c.name 고객성함, m.mvId 영화ID, m.title 영화제목, t.thId 극장아이디, t.thName, r.rsv_id 예매번호, r.day 예매날짜, r.rsvTime 상영시간대, r.num 예매인원, r.paymentMethod 결제방법, r.total 총금액
+from rsv r
+inner join customer c
+on (r.cus_id = c.id)
+inner join movie m
+on (r.mv_mvId = m.mvId)
+inner join theater t
+on (r.th_thId = t.thId)
+
+ㅁV_rsv 클래스 만들때! (12개)
+view 컬럼명 	/ V_rsvDTO 변수명
+id		->customerId
+name		->customerName
+mvId		->movieId
+title		->movieTitle
+thId		->theaterId
+thName		->theaterName
+rsv_id		->rsvId
+day		->rsvDay
+rsvTime		->rsvTime
+num (숫자)	->rsvNum (숫자)
+paymentMethod	->rsvPaymentMethod
+total (숫자)	->rsvTotal  (숫자)
+
+id,name,mvId,title,thId,thName,rsv_id,day,rsvTime,num,paymentMethod,total
+=======================================
+지시
+1. table  join 하라고 하셨음. 
+2. 트랜젝션 구현하고 하셨음. 
+3. customer 입력받을때 생년월일 하고, db에 저장은 sysdate로 하기.
+4. 로그인 (sql문으로 확인 후 맞으면~)
+5. 보고서작성
+
+-----
+구현시도
+비번 2번입력, 이전으로~ 
+참고
+https://www.slideshare.net/_ce/db-42499372
+-------
+보고서에 첨부
+클래스 다이어그램. 자바순수. 다운받기. 이클립스 
+
+기능사용하는 방법. flow 차트 
